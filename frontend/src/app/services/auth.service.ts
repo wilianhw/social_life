@@ -13,8 +13,17 @@ export class AuthService {
   login(user: { username: string; password: string }) {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-    console.log(user)
     return this.http.post("http://localhost:8080/auth/login", user, { headers })
+    .subscribe(response => {
+        console.log(response);
+    });
+  }
+
+  register(user: { username: string; password: string, role: string }) {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    console.log("teste")
+
+    return this.http.post("http://localhost:8080/auth/register", user, { headers })
     .subscribe(response => {
         console.log(response);
     });
