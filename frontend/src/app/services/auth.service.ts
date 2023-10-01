@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { tap } from "rxjs/operators";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
+import jwt_decode from "jwt-decode";
 
 @Injectable({
   providedIn: "root",
@@ -37,5 +37,15 @@ export class AuthService {
       .subscribe(() => {
         this.router.navigate(["/login"]);
       });
+  }
+
+  extractUserIdFromToken(token: string): number | null {
+    try {
+      const decodedToken: any = jwt_decode(token);
+      return decodedToken.userId;
+    } catch (error) {
+      console.error('Erro ao decodificar o token:', error);
+      return null;
+    }
   }
 }

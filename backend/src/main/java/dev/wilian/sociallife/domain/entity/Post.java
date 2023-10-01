@@ -24,15 +24,12 @@ public class Post {
     @ManyToOne
     private User user;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<ImagePost> imagePosts = new ArrayList<>();
 
-    @JsonIgnore
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<LinkPost> linkPosts = new ArrayList<>();
 
-    @JsonIgnore
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<CommentPost> commentPosts = new ArrayList<>();
 }

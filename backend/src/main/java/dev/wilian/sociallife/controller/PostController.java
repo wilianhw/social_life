@@ -6,6 +6,7 @@ import dev.wilian.sociallife.domain.entity.LinkPost;
 import dev.wilian.sociallife.domain.entity.Post;
 import dev.wilian.sociallife.domain.entity.User;
 import dev.wilian.sociallife.repository.PostRepository;
+import dev.wilian.sociallife.repository.UserRepository;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
