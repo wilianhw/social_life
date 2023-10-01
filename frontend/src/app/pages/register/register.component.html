@@ -19,6 +19,7 @@
         class="form-control"
       />
     </div>
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <button type="submit" [disabled]="!formRegister.valid" class="btn btn-primary">Cadastrar</button>
   </form>
+  <button routerLink="/login" class="btn btn-secondary mt-2">Voltar para o Login</button>
 </div>

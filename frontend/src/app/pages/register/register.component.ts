@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "src/app/services/auth.service";
 
@@ -10,7 +10,7 @@ import { AuthService } from "src/app/services/auth.service";
 export class RegisterComponent {
   formRegister: FormGroup = this.fb.group({
     username: ["", Validators.required],
-    password: ["", [Validators.required, Validators.minLength(6)]],
+    password: ["", [Validators.required]],
   });
 
   constructor(private fb: FormBuilder, private authService: AuthService) {}
