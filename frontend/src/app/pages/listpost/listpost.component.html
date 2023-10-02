@@ -1,0 +1,28 @@
+<div class="post-list">
+  <h2>Listagem de Posts</h2>
+
+  <div *ngFor="let post of posts" class="post">
+    <h3>{{ post.postTexto }}</h3>
+    <p>Imagens:</p>
+    <div class="images">
+      <img
+        *ngFor="let imageBase64 of post.imagesBase64"
+        [src]="'data:image/jpeg;base64,' + imageBase64"
+        alt="Imagem"
+      />
+    </div>
+
+    <p>Links:</p>
+    <ul>
+      <li *ngFor="let link of post.links">{{ link }}</li>
+    </ul>
+    <p>Comentários:</p>
+    <ul>
+      <li *ngFor="let comment of post.comments">{{ comment }}</li>
+    </ul>
+
+    <app-comment-form
+      (comentarioAdicionado)="adicionarComentario(post, $event)"
+    ></app-comment-form>
+  </div>
+</div>

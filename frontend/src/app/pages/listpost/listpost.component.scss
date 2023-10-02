@@ -1,0 +1,60 @@
+/* Seu arquivo SCSS personalizado */
+
+.post-list {
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .post {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #fff;
+
+    h3 {
+      font-size: 20px;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-weight: bold;
+    }
+
+    .images {
+      img {
+        max-width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    .comment-form {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+
+      h4 {
+        font-size: 18px;
+        margin-top: 0;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+      }
+
+      button {
+        margin-top: 10px;
+      }
+    }
+  }
+}

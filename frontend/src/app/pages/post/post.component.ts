@@ -9,7 +9,7 @@ import { PostService } from "src/app/services/post.service";
   templateUrl: "./post.component.html",
   styleUrls: ["./post.component.scss"],
 })
-export class InitialComponent {
+export class PostComponent {
   postForm: FormGroup;
 
   constructor(private fb: FormBuilder, private postService: PostService) {

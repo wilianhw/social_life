@@ -1,18 +1,16 @@
 package dev.wilian.sociallife.controller;
 
 import dev.wilian.sociallife.domain.dto.PostInputDTO;
-import dev.wilian.sociallife.domain.entity.ImagePost;
-import dev.wilian.sociallife.domain.entity.LinkPost;
-import dev.wilian.sociallife.domain.entity.Post;
-import dev.wilian.sociallife.domain.entity.User;
+import dev.wilian.sociallife.domain.dto.PostOutputDTO;
+import dev.wilian.sociallife.domain.entity.*;
 import dev.wilian.sociallife.repository.PostRepository;
-import dev.wilian.sociallife.repository.UserRepository;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/post")
@@ -25,8 +23,32 @@ public class PostController {
     }
 
     @GetMapping
-    public List<Post> findAll() {
-        return postRepository.findAll();
+    public List<PostOutputDTO> findAll() {
+        List<Post> posts = postRepository.findAll();
+
+        return posts.stream()
+                .map(post -> {
+                    List<String> imageBase64List = post.getImagePosts().stream()
+                            .map(imageBytes -> Base64.encodeBase64String(imageBytes.getImageBytes()))
+                            .toList();
+
+                    List<String> links = post.getLinkPosts().stream()
+                            .map(LinkPost::getUrl)
+                            .toList();
+
+                    List<String> comments = post.getCommentPosts().stream()
+                            .map(CommentPost::getComment)
+                            .toList();
+
+                    return new PostOutputDTO(
+                            post.getUser().getId(),
+                            post.getTexto(),
+                            imageBase64List,
+                            links,
+                            comments
+                    );
+                })
+                .toList();
     }
 
     @PostMapping("{idUser}")

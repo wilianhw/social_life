@@ -7,14 +7,20 @@ import { LoginComponent } from "./pages/login/login.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RegisterComponent } from "./pages/register/register.component";
-import { InitialComponent } from "./pages/post/post.component";
+import { PostComponent } from "./pages/post/post.component";
+import { HeaderComponent } from './components/header/header.component';
+import { ListpostComponent } from './pages/listpost/listpost.component';
+import { CommentFormComponent } from './components/comment-form/comment-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    InitialComponent,
+    PostComponent,
+    HeaderComponent,
+    ListpostComponent,
+    CommentFormComponent,
   ],
   imports: [
     BrowserModule,

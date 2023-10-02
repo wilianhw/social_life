@@ -1,0 +1,14 @@
+<div class="comment-form">
+  <h4>Adicionar Comentário</h4>
+  <form [formGroup]="comentarioForm" (ngSubmit)="adicionarComentario()">
+    <div class="form-group">
+      <textarea
+        formControlName="novoComentario"
+        class="form-control"
+        rows="3"
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar Comentário</button>
+  </form>
+</div>
